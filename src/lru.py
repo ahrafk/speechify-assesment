@@ -13,38 +13,23 @@ class LRUCache:
     """
 
     def __init__(self, item_limit: int):
-        # TODO: implement this function
-        # try:
-        # if item_limit <=0:
-        #     raise ValueError("Capacity must be greater than 0")
         self.cache = OrderedDict()
         self.item_limit = item_limit
-        # except:
-        #     raise NotImplementedError()
 
     def has(self, key: str) -> bool:
-        # TODO: implement this function
             if key in self.cache:
                 self.cache.move_to_end(key)
                 return True
             return False
-        # except:
-        #     raise NotImplementedError()
 
     def get(self, key: str) -> Optional[Any]:
-        # TODO: implement this function
-        # try:
         if key not in self.cache:
             return None
         
         self.cache.move_to_end(key)
         return self.cache[key]
-        # except:
-        #     raise NotImplementedError()
 
     def set(self, key: str, value: Any):
-        # TODO: implement this function
-        # try:
         if key in self.cache:
             self.cache.move_to_end(key)
 
@@ -52,5 +37,3 @@ class LRUCache:
 
         if len(self.cache) > self.item_limit:
             self.cache.popitem(last=False)
-        # except:
-        #     raise NotImplementedError()
